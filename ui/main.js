@@ -23,8 +23,6 @@ button.onclick = function () {
 };
 
 //Submit name
-var nameInput = document.getElementById('name');
-var listname = nameInput.value;
 var submit = document.getElementById('submit_btn');
 
 submit.onclick = function () {
@@ -47,6 +45,8 @@ submit.onclick = function () {
             }
         }
     };
+    var nameInput = document.getElementById('name');
+    var listname = nameInput.value;
     //make the request
     request.open('GET', 'http://ssthil.imad.hasura-app.io/submit-name?name='+listname, true);
     request.send(null);

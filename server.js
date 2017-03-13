@@ -35,6 +35,16 @@ app.get('/test-db', function(req, res){
     })
 });
 
+app.get('/customers', function(req, res) {
+    pool.query("SELECT * FROM CUSTOMERS", function(err, result){
+        if(err) {
+            res.status(500).send(err.toString());
+        } else {
+            res.send(JSON.stringify(result));
+        }
+    })
+});
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
